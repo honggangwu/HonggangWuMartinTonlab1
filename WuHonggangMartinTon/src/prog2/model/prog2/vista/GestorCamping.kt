@@ -1,4 +1,4 @@
-package prog2.model.prog2.vista;
+package prog2.model.prog2.vista
 
-public class GestorCamping {
+class GestorCamping {
 }
