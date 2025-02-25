@@ -1,6 +1,7 @@
 package prog2.model;
 
 public class Casa extends Allotjament {
+
     @Override
     public String getNom() {
         return "";
