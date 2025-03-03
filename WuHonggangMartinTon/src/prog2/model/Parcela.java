@@ -1,39 +1,26 @@
 package prog2.model;
 
 public class Parcela extends Allotjament {
+    int mida;
+    boolean connexio;
 
-    @Override
-    public String getNom() {
-        return "";
+    public Parcela(String nom, String id, int estadaMinAlta, int estadaMinBaixa, int mida, boolean connexio) {
+        super(nom, id, estadaMinAlta, estadaMinBaixa);
+        this.mida = mida;
+        this.connexio = connexio;
     }
 
-    @Override
-    public void setNom(String nom) {
-
+    // GETTERS I SETTERS
+    public int getMida(){
+        return this.mida;
     }
-
-    @Override
-    public String getId() {
-        return "";
+    public void setMida(int mida){
+        this.mida = mida;
     }
-
-    @Override
-    public void setId(String id) {
-
+    public boolean getConnexio(){
+        return this.connexio;
     }
-
-    @Override
-    public long getEstadaMinima(Temp temp) {
-        return 0;
-    }
-
-    @Override
-    public void setEstadaMinima(long estadaMinimaALTA_, long estadaMinimaBAIXA_) {
-
-    }
-
-    @Override
-    public boolean correcteFuncionament() {
-        return false;
+    public void setConnexio(boolean connexio){
+        this.connexio = connexio;
     }
 }

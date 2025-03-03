@@ -1,38 +1,15 @@
 package prog2.model;
 
 public class Casa extends Allotjament {
-    @Override
-    public String getNom() {
-        return "";
-    }
+    String mida;
+    int habitacions;
+    int capacitat;
 
-    @Override
-    public void setNom(String nom) {
-
-    }
-
-    @Override
-    public String getId() {
-        return "";
-    }
-
-    @Override
-    public void setId(String id) {
-
-    }
-
-    @Override
-    public long getEstadaMinima(Temp temp) {
-        return 0;
-    }
-
-    @Override
-    public void setEstadaMinima(long estadaMinimaALTA_, long estadaMinimaBAIXA_) {
-
-    }
-
-    @Override
-    public boolean correcteFuncionament() {
-        return false;
+    public Casa(String nom, String id, int estadaMinAlta
+                ,int estadaMinBaixan, String mida, int habitacions, int capacitat) {
+        super(nom, id, estadaMinAlta, estadaMinBaixan);
+        this.mida = mida;
+        this.habitacions = habitacions;
+        this.capacitat = capacitat;
     }
 }
