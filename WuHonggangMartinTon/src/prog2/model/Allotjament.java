@@ -1,17 +1,20 @@
 package prog2.model;
 
-public abstract class Allotjament implements InAllotjament{
-    String nom;
-    String id;
-    long estadaMinAlta;
-    long estadaMinBaixa;
 
-    public Allotjament(String nom, String id, int estadaMinAlta, int estadaMinBaixa) {
+public abstract class Allotjament implements InAllotjament{
+    private String nom;
+    private String idAllotjament;
+    private long estadaMinAlta;
+    private long estadaMinBaixa;
+
+
+    public Allotjament(String nom, String idAllotjament, long estadaMinAlta, long estadaMinBaixa) {
         this.nom = nom;
-        this.id = id;
+        this.idAllotjament = idAllotjament;
         this.estadaMinAlta = estadaMinAlta;
         this.estadaMinBaixa = estadaMinBaixa;
     }
+
 
     // GETTERS I SETTERS
     @Override
@@ -24,11 +27,11 @@ public abstract class Allotjament implements InAllotjament{
     }
     @Override
     public String getId() {
-        return this.id;
+        return this.idAllotjament;
     }
     @Override
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String idAllotjament) {
+        this.idAllotjament = idAllotjament;
     }
     @Override
     public long getEstadaMinima(Temp temp) {
@@ -44,8 +47,13 @@ public abstract class Allotjament implements InAllotjament{
         this.estadaMinBaixa = estadaMinimaBAIXA_;
     }
 
+
     @Override
     public boolean correcteFuncionament() {
         return false;
     }
 }
+
+
+
+

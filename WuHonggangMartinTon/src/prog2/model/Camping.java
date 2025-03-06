@@ -19,17 +19,17 @@ public class Camping implements InCamping{
 
     @Override
     public LlistaReserves getLlistaReserves() {
-        return null;
+        return reserves;
     }
 
     @Override
     public ArrayList<Allotjament> getLlistaAllotjaments() {
-        return null;
+        return allotjaments;
     }
 
     @Override
     public ArrayList<Client> getLlistaClients() {
-        return null;
+        return clients;
     }
 
     @Override

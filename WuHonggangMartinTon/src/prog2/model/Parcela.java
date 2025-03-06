@@ -1,26 +1,31 @@
 package prog2.model;
 
-public class Parcela extends Allotjament {
-    int mida;
-    boolean connexio;
 
-    public Parcela(String nom, String id, int estadaMinAlta, int estadaMinBaixa, int mida, boolean connexio) {
-        super(nom, id, estadaMinAlta, estadaMinBaixa);
+public class Parcela extends Allotjament {
+    float mida;
+    boolean connexioElectrica;
+
+
+    public Parcela(String nom, String idAllotjament, long estadaMinAlta, long estadaMinBaixa,
+                   float mida, boolean connexioElectrica) {
+        super(nom, idAllotjament, estadaMinAlta, estadaMinBaixa);
         this.mida = mida;
-        this.connexio = connexio;
+        this.connexioElectrica = connexioElectrica;
     }
+
 
     // GETTERS I SETTERS
-    public int getMida(){
+    public float getMida(){
         return this.mida;
     }
-    public void setMida(int mida){
+    public void setMida(float mida){
         this.mida = mida;
     }
-    public boolean getConnexio(){
-        return this.connexio;
+    public boolean isConnexioElectrica(){
+        return this.connexioElectrica;
     }
-    public void setConnexio(boolean connexio){
-        this.connexio = connexio;
+    public void setConnexioElectrica(boolean connexio){
+        this.connexioElectrica = connexio;
     }
 }
+

@@ -1,5 +1,19 @@
 package prog2.model;
 
 public class MobilHome extends Casa{
-    boolean barbacoa;
+    private boolean barbacoa;
+
+    public MobilHome(String nom, String idAllotjament, long estadaMinAlta,
+            long estadaMinBaixa, String mida, int habitacions, int placesPersones,boolean barbacoa) {
+        super(nom ,idAllotjament , estadaMinAlta, estadaMinBaixa,mida,habitacions,placesPersones);
+        this.barbacoa=barbacoa;
+    }
+
+    public boolean isBarbacoa(){
+        return this.barbacoa;
+    }
+
+    public void setBarbacoa(boolean barbacoa){
+        this.barbacoa=barbacoa;
+    }
 }
