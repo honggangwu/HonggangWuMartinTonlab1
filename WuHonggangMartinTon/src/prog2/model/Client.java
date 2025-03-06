@@ -8,9 +8,8 @@ public class Client{
     private String nom;
     private String Dni;
 
-    public Client(String nom,String DNI){
+    public Client(String nom,String Dni){
         this.nom=nom;
-
         this.Dni=Dni;
     }
 
@@ -26,17 +25,13 @@ public class Client{
         return this.Dni;
     }
 
-    public void setDni(){
+    public void setDni()throws ExcepcioReserva{
         if(Dni.length()==9){
             this.Dni=Dni;
         }
         else{
             throw new ExcepcioReserva("ERROR: El Dni ha de tenir 9 caracters");
         }
-    }
-
-    public String toString(){
-
     }
 
 }

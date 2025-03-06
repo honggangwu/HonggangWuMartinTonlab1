@@ -1,7 +1,7 @@
 package prog2.model;
 
 
-public class Casa extends Allotjament {
+public abstract class Casa extends Allotjament {
     private String mida;
     private int habitacions;
     private int placesPersones;

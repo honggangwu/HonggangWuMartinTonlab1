@@ -6,9 +6,9 @@ public class Parcela extends Allotjament {
     boolean connexioElectrica;
 
 
-    public Parcela(String nom, String idAllotjament, long estadaMinAlta, long estadaMinBaixa,
+    public Parcela(String nom, String idAllotjament,
                    float mida, boolean connexioElectrica) {
-        super(nom, idAllotjament, estadaMinAlta, estadaMinBaixa);
+        super(nom, idAllotjament,4,2);
         this.mida = mida;
         this.connexioElectrica = connexioElectrica;
     }

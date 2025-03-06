@@ -3,9 +3,9 @@ package prog2.model;
 public class MobilHome extends Casa{
     private boolean barbacoa;
 
-    public MobilHome(String nom, String idAllotjament, long estadaMinAlta,
-            long estadaMinBaixa, String mida, int habitacions, int placesPersones,boolean barbacoa) {
-        super(nom ,idAllotjament , estadaMinAlta, estadaMinBaixa,mida,habitacions,placesPersones);
+    public MobilHome(String nom, String idAllotjament,
+                     String mida, int habitacions, int placesPersones,boolean barbacoa) {
+        super(nom ,idAllotjament ,5,3,mida,habitacions,placesPersones);
         this.barbacoa=barbacoa;
     }
 
