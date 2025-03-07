@@ -28,4 +28,16 @@ public class Glamping extends Casa{
     public void setCasaMascotes(boolean casaMascotes){
         this.casaMascotes=casaMascotes;
     }
+
+    public String toString() {
+        return "Nom=" + getNom() + ", Id=" + getId() +
+                ", estada mínima en temp ALTA: " + getEstadaMinima(Temp.ALTA) +
+                ", estada mínima en temp BAIXA: " + getEstadaMinima(Temp.BAIXA) +
+                " Glamping { mida=" + getMida() +
+                ", habitacions=" + getHabitacions() +
+                ", places persones=" + getPlacesPersones() +
+                ", material=" + getMaterial() +
+                ", casa mascotes=" + isCasaMascotes() + " }";
+    }
+
 }

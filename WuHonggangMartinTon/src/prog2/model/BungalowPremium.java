@@ -29,5 +29,12 @@ public class BungalowPremium extends Bungalow {
         this.codiWifi=codiWifi;
     }
 
+    @Override
+    public String toString() {
+        return super.toString().replace("}", "") +
+                ", serveis extra=" + isServeisExtra() +
+                ", codi wifi=" + getCodiWifi() + " }";
+    }
+
 
 }

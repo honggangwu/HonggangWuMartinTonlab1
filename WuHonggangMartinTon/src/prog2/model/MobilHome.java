@@ -16,4 +16,15 @@ public class MobilHome extends Casa{
     public void setBarbacoa(boolean barbacoa){
         this.barbacoa=barbacoa;
     }
+
+    public String toString() {
+        return "Nom=" + getNom() + ", Id=" + getId() +
+                ", estada mínima en temp ALTA: " + getEstadaMinima(Temp.ALTA) +
+                ", estada mínima en temp BAIXA: " + getEstadaMinima(Temp.BAIXA) +
+                " MobilHome { mida=" + getMida() +
+                ", habitacions=" + getHabitacions() +
+                ", places persones=" + getPlacesPersones() +
+                ", barbacoa=" + isBarbacoa() + " }";
+    }
+
 }

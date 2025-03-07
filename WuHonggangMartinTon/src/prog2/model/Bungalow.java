@@ -48,9 +48,18 @@ public class Bungalow extends Casa {
         this.aireFred=aireFred;
     }
 
-    @Override
-    public boolean correcteFuncionament() {
-        return super.correcteFuncionament();
+    public String toString() {
+        return "Nom=" + getNom() + ", Id=" + getId() +
+                ", estada mínima en temp ALTA: " + getEstadaMinima(Temp.ALTA) +
+                ", estada mínima en temp BAIXA: " + getEstadaMinima(Temp.BAIXA) +
+                " Bungalow { mida=" + getMida() +
+                ", habitacions=" + getHabitacions() +
+                ", places persones=" + getPlacesPersones() +
+                ", places parquing=" + getPlacesParquing() +
+                ", Terrassa=" + isTerrassa() +
+                ", Tv=" + isTv() +
+                ", aire fred=" + isAireFred() + " }";
     }
+
 }
 

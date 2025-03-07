@@ -13,8 +13,6 @@ public class Parcela extends Allotjament {
         this.connexioElectrica = connexioElectrica;
     }
 
-
-    // GETTERS I SETTERS
     public float getMida(){
         return this.mida;
     }
@@ -27,5 +25,14 @@ public class Parcela extends Allotjament {
     public void setConnexioElectrica(boolean connexio){
         this.connexioElectrica = connexio;
     }
+
+    public String toString() {
+        return "Nom=" + getNom() + ", Id=" + getId() +
+                ", estada mínima en temp ALTA: " + getEstadaMinima(Temp.ALTA) +
+                ", estada mínima en temp BAIXA: " + getEstadaMinima(Temp.BAIXA) +
+                " Parcela { mida=" + getMida() +
+                ", connexio electrica=" + isConnexioElectrica() + " }";
+    }
+
 }
 
