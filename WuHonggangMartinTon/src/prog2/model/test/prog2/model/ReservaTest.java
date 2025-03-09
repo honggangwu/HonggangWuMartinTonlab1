@@ -55,7 +55,7 @@ public class ReservaTest {
     }
 
     @Test
-    public void testSetters() {
+    public void testSetters() throws ExcepcioReserva {
         // Canviem els valors fent servir els setters
         Allotjament nouAllotjament = new Parcela("Parcela A", "P2", 50.0f, true);
         Client nouClient = null;

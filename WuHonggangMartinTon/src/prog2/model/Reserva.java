@@ -1,4 +1,6 @@
 package prog2.model;
+import prog2.vista.ExcepcioReserva;
+
 import java.time.LocalDate;
 
 
@@ -9,11 +11,11 @@ public class Reserva{
     private LocalDate dataSortida;
 
 
-    public Reserva(Allotjament allotjament, Client client, LocalDate dataEntrada, LocalDate dataSortida){
+    public Reserva(Allotjament allotjament, Client client, LocalDate dataEntrada, LocalDate dataSortida) throws ExcepcioReserva {
         this.client = client;
         this.allotjament = allotjament;
         this.dataEntrada = dataEntrada;
-        this.dataSortida = dataSortida;
+        setDataSortida(dataSortida);
     }
 
 
@@ -25,7 +27,11 @@ public class Reserva{
     public void setClient(Client client) {this.client = client;}
     public void setAllotjament_(Allotjament allotjament) {this.allotjament = allotjament;}
     public void setDataEntrada(LocalDate novaDataEntrada) {this.dataEntrada = novaDataEntrada;}
-    public void setDataSortida(LocalDate novaDataSortida) {this.dataSortida = novaDataSortida;}
-
+    public void setDataSortida(LocalDate dataSortida) throws ExcepcioReserva {
+        if(dataEntrada.isAfter(dataSortida)) {
+            throw new ExcepcioReserva("Data de sortida incorrecta");
+        }
+        this.dataSortida = dataSortida;
+    }
 
 }
