@@ -1,7 +1,11 @@
 
+
 package prog2.vista;
 
+
 import prog2.model.Camping;
+
+
 
 
 /**
@@ -10,15 +14,18 @@ import prog2.model.Camping;
  */
 public class GestorCamping {
 
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
 
+
         Camping campingMar = new Camping("Camping del Mar");
 
+
         omplirDadesModel(campingMar);
-        
+
         ferReserves(campingMar);
 
 
@@ -29,25 +36,28 @@ public class GestorCamping {
         // Per completar
 
 
+
+
         // Mostrar el número total d'allotjaments del Càmping i el número d'allotjaments que estan operatius amb el següent missatge:
         // >> El número total d'allotjaments del Càmping és X dels quals X allotjaments estan operatius.
         //--------------------------------------------------------------------------------------------------
         // Per completar
 
+
         // Mostrar l'allotjament amb estada mínima de la temporada baixa més curta amb el següent missatge:
         // >> L'allotjament amb estada mínima de la temporada baixa més curta és el següent:
         //--------------------------------------------------------------------------------------------------
         // Per completar
-       
+
     }
-    
+
     /**
      * Mètode de classe per afegir parcel·les, bungalows, bungalows premium, glampings, mobil-home i clients al càmping.
      * @param camping L'objecte de tipus Camping que anem a omplir
      */
     private static void omplirDadesModel(Camping camping){
-        
-        
+
+
         // Afegir parcel·les:
         //------------------------------
         String nom = "Parcel·la Nord";
@@ -55,12 +65,16 @@ public class GestorCamping {
         float metres = 64.0f;
         boolean connexioElectrica = true;
 
+
         camping.afegirParcela(nom, idAllotjament, metres, connexioElectrica);
+
 
         nom = "Parcel·la Sud";
         idAllotjament = "101P";
-        
+
         camping.afegirParcela(nom, idAllotjament, metres, connexioElectrica);
+
+
 
 
         // Afegir bungalows:
@@ -75,7 +89,9 @@ public class GestorCamping {
         boolean tv= true;
         boolean aireFred = true;
 
+
         camping.afegirBungalow(nom, idAllotjament, mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred);
+
 
         nom = "Bungalow Oest";
         idAllotjament = "103B";
@@ -87,7 +103,9 @@ public class GestorCamping {
         tv= false;
         aireFred = false;
 
+
         camping.afegirBungalow(nom, idAllotjament, mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred);
+
 
         // Afegir bungalows premium:
         //------------------------------
@@ -102,8 +120,9 @@ public class GestorCamping {
         aireFred = false;
         boolean serveisExtra = true;
         String codiWifi = "CampingDelMarBP1";
-        
+
         camping.afegirBungalowPremium(nom, idAllotjament, mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred, serveisExtra, codiWifi);
+
 
         nom = "Bungallow Sud";
         idAllotjament = "105BP";
@@ -117,10 +136,13 @@ public class GestorCamping {
         serveisExtra = true;
         codiWifi = "CampingDelMarBP2";
 
+
         camping.afegirBungalowPremium(nom, idAllotjament, mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred, serveisExtra, codiWifi);
+
 
         // Afegir Glamping:
         //------------------------------
+
 
         nom = "Glamping Nord";
         idAllotjament = "106G";
@@ -130,7 +152,9 @@ public class GestorCamping {
         String material = "Tela";
         boolean casaMascota = true;
 
+
         camping.afegirGlamping(nom, idAllotjament, mida, habitacions, placesPersones, material, casaMascota);
+
 
         nom = "Glamping Sud";
         idAllotjament = "107G";
@@ -140,7 +164,9 @@ public class GestorCamping {
         material = "Tela";
         casaMascota = false;
 
+
         camping.afegirGlamping(nom, idAllotjament, mida, habitacions, placesPersones, material, casaMascota);
+
 
         // Afegir Mobil-Home:
         //------------------------------
@@ -151,7 +177,9 @@ public class GestorCamping {
         placesPersones = 2;
         boolean terrassaBarbacoa = true;
 
+
         camping.afegirMobilHome(nom, idAllotjament, mida, habitacions, placesPersones, terrassaBarbacoa);
+
 
         nom = "Mobil-Home Sud";
         idAllotjament = "109MH";
@@ -160,7 +188,10 @@ public class GestorCamping {
         placesPersones = 4;
         terrassaBarbacoa = false;
 
+
         camping.afegirMobilHome(nom, idAllotjament, mida, habitacions, placesPersones, terrassaBarbacoa);
+
+
 
 
         // Afegir clients:
@@ -173,6 +204,7 @@ public class GestorCamping {
             System.out.println(ex.getMessage());
         }
 
+
         nomClient = "Lluís Plans";
         dni="78659101A";
         try {
@@ -181,48 +213,56 @@ public class GestorCamping {
             System.out.println(ex.getMessage());
         }
     }
-    
+
     /**
      * Mètode per fer reserves d'allotjaments.
      * @param camping
      */
     private static void ferReserves(Camping camping){
-        
+
         // Per completar:
-        
+
         // 1. Afegeix una reserva pel client amb DNI "12345678X" de l'allotjament amb identificador "100P"
         // amb la data d'entrada 20 de Febrer del 2025 i data de sortida 28 de febrer del 2025.
+
 
         // Declarar les variables de tipus String idAllotjament i dni.
         // Per completar
 
+
         // Assigna els valors corresponents.
         // Per completar
+
 
         // Crear una LocalDate per definir la data de la reserva.
         // Per completar
 
+
         // Intentar afegir la reserva amb la informació indicada i si no és possible mostrar el missatge d'error.
         // Per completar
-        
+
         // 2. Afegeix una reserva pel client amb DNI "78659101A" de l'allotjament amb identificador "100P"
         // amb la data d'entrada 25 de Febrer del 2025 i data de sortida 28 de febrer del 2025.
+
 
         // Assigna els nous valors a les variables
         // Per completar
 
+
         // Intentar afegir la reserva amb la informació indicada i si no és possible mostrar el missatge d'error.
         // Per completar
-           
+
         // 3. Afegeix una reserva pel client amb DNI "789101A" de l'allotjament amb identificador "300S"
         // amb la data d'entrada 25 de Febrer del 2025 i data de sortida 28 de febrer del 2025.
 
-        // Assigna els nous valors a les variables.    
+
+        // Assigna els nous valors a les variables.
         // Per completar
+
 
         // Intentar afegir la reserva amb la informació indicada i si no és possible mostrar el missatge d'error.
         // Per completar
-        
+
     }
-    
+
 }

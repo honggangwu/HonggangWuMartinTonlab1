@@ -34,4 +34,8 @@ public class Client{
         }
     }
 
+    public String toString(){
+        return "Nom=" + getNom() + ", Dni=" + getDni();
+    }
+
 }

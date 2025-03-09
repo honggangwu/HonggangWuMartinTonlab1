@@ -1,11 +1,12 @@
 package prog2.model;
 
-
 import prog2.vista.ExcepcioReserva;
 
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Objects;
 
@@ -14,8 +15,14 @@ public class Camping implements InCamping{
     private String nomCamping;
     private ArrayList<Allotjament> allotjaments;
     private ArrayList<Client> clients;
-    private ArrayList<Reserva> reserves;
+    private LlistaReserves reserves;
 
+    public Camping(String nomCamping) {
+        this.nomCamping = nomCamping;
+        this.allotjaments = new ArrayList<>();
+        this.clients = new ArrayList<>();
+        this.reserves = new LlistaReserves();
+    }
 
     @Override
     public String getNom() {
@@ -49,7 +56,7 @@ public class Camping implements InCamping{
 
     @Override
     public int getNumReserves() {
-        return this.reserves.size();
+        return this.reserves.getNumReserves();
     }
 
 
@@ -106,38 +113,74 @@ public class Camping implements InCamping{
         Client nouClient = buscarClient(dni_);
         Allotjament nouAllotjament = buscarAllotjament(id_);
 
-
         if (nouClient == null) {
             throw new ExcepcioReserva("No existeix aquest Client");
         }
         if (nouAllotjament == null) {
             throw new ExcepcioReserva("No existeix aquest Id");
         }
-    }
 
+        // Afegir la reserva a la llista de reserves del càmping
+        this.reserves.afegirReserva(nouAllotjament, nouClient, dataEntrada, dataSortida);
+    }
 
     @Override
     public float calculMidaTotalParceles() {
-        Iterator<Allotjament> it = allotjaments.iterator();
-        Allotjament espai;
-        if (espai instanceof  Parcela){
-            Parcela parcela = (Parcela) espai;
-        }
-        return 0;
-    }
+        float midaTotal = 0; // Iniciamos la suma total de las parcelas
 
+        // Usamos un iterador para recorrer la lista de allotjaments
+        Iterator<Allotjament> it = allotjaments.iterator();
+
+        while (it.hasNext()) {
+            Allotjament espai = it.next();  // Obtenemos el siguiente allotjament
+
+            // Comprobamos si el allotjament es una instancia de Parcela
+            if (espai instanceof Parcela) {
+                Parcela parcela = (Parcela) espai;  // Hacemos el casting a Parcela
+                midaTotal += parcela.getMida();  // Sumamos la medida de la parcela al total
+            }
+        }
+
+        return midaTotal;  // Retornamos la suma total de las parcel·les
+    }
 
     @Override
     public int calculAllotjamentsOperatius() {
-        return 0;
-    }
+        if (reserves == null || reserves.getNumReserves() == 0) {
+            return 0; // No hi ha reserves, per tant, cap allotjament operatiu
+        }
 
+        HashSet<Allotjament> allotjamentsOperatius = new HashSet<>();
+
+        // Recorrem totes les reserves i afegim els allotjaments en ús
+        for (Reserva reserva : reserves.getReserves()) {
+            allotjamentsOperatius.add(reserva.getAllotjament_());
+        }
+
+        return allotjamentsOperatius.size(); // Retornem el nombre d’allotjaments amb reserves actives
+    }
 
     @Override
     public Allotjament getAllotjamentEstadaMesCurta() {
-        return null;
-    }
+        if (reserves == null || reserves.getNumReserves() == 0) {
+            return null; // Si no hi ha reserves, retornem null
+        }
 
+        Reserva reservaMesCurta = null;
+        long minDies = Long.MAX_VALUE;
+
+        // Recorrem totes les reserves per trobar la més curta
+        for (Reserva reserva : reserves.getReserves()) {
+            long diesEstada = ChronoUnit.DAYS.between(reserva.getDataEntrada(), reserva.getDataSortida());
+
+            if (diesEstada < minDies) {
+                minDies = diesEstada;
+                reservaMesCurta = reserva;
+            }
+        }
+
+        return (reservaMesCurta != null) ? reservaMesCurta.getAllotjament_() : null;
+    }
 
     public Allotjament buscarAllotjament(String id_){
         for (Allotjament allotjament : allotjaments) {
@@ -148,7 +191,6 @@ public class Camping implements InCamping{
         return null;
     }
 
-
     public Client buscarClient(String dni_){
         for (Client client : clients) {
             if (client.getDni() == dni_){
@@ -156,6 +198,21 @@ public class Camping implements InCamping{
             }
         }
         return null;
+    }
+
+    public static InAllotjament.Temp getTemporada(LocalDate data){
+        if (data==null){
+            throw new IllegalArgumentException("Ha d'haver-hi una data");
+        }
+        int dia =data.getDayOfMonth(); // transforma la data en dies del mes(1-30)
+        int mes =data.getMonthValue(); // transforma la data a mes(1-12)
+        if ((mes> 3 && mes< 9) || (mes==3 && dia>=21) || (mes==9 && dia<=20)){
+            return InAllotjament.Temp.ALTA;
+        }
+        else{
+            return InAllotjament.Temp.BAIXA;
+        }
+
     }
 }
 
