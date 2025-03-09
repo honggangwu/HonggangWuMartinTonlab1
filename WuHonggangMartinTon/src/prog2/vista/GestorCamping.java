@@ -36,7 +36,7 @@ public class GestorCamping {
         //--------------------------------------------------------------------------------------------------------------------
 
         float midaTotalCamping=campingMar.calculMidaTotalParceles();
-        System.out.println("La mida tota de les parcel·les del Càmping del Mar és de "+ midaTotalCamping+"m^2");
+        System.out.println("La mida total de les parcel·les del Càmping del Mar és de "+ midaTotalCamping+"m^2");
 
         // Mostrar el número total d'allotjaments del Càmping i el número d'allotjaments que estan operatius amb el següent missatge:
         // >> El número total d'allotjaments del Càmping és X dels quals X allotjaments estan operatius.
@@ -244,7 +244,7 @@ public class GestorCamping {
 
         try {
             camping.afegirReserva(idAllotjament, dni, dataEntrada, dataSortida);
-            System.out.println("Reserva afegida correctament per " + dni);
+            System.out.println("Reserva afegida correctament per client amb dni: " + dni);
         } catch (ExcepcioReserva e) {
             System.out.println("Error en afegir la reserva: " + e.getMessage());
         }

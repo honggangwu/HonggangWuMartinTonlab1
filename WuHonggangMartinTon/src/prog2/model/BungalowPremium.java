@@ -42,5 +42,4 @@ public class BungalowPremium extends Bungalow {
                 ", codi wifi=" + getCodiWifi() + " }";
     }
 
-
 }

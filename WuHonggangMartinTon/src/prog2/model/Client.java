@@ -2,8 +2,6 @@ package prog2.model;
 
 import prog2.vista.ExcepcioReserva;
 
-import java.util.EmptyStackException;
-
 public class Client{
     private String nom;
     private String Dni;
