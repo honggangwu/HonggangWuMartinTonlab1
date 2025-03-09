@@ -146,18 +146,13 @@ public class Camping implements InCamping{
 
     @Override
     public int calculAllotjamentsOperatius() {
-        if (reserves == null || reserves.getNumReserves() == 0) {
-            return 0; // No hi ha reserves, per tant, cap allotjament operatiu
+        int count = 0;
+        for (Allotjament allotjament : allotjaments) {
+            if (allotjament.correcteFuncionament()) {
+                count++;
+            }
         }
-
-        HashSet<Allotjament> allotjamentsOperatius = new HashSet<>();
-
-        // Recorrem totes les reserves i afegim els allotjaments en ús
-        for (Reserva reserva : reserves.getReserves()) {
-            allotjamentsOperatius.add(reserva.getAllotjament_());
-        }
-
-        return allotjamentsOperatius.size(); // Retornem el nombre d’allotjaments amb reserves actives
+        return count;
     }
 
     @Override

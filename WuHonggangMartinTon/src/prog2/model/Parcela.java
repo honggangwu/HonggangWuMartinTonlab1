@@ -26,6 +26,11 @@ public class Parcela extends Allotjament {
         this.connexioElectrica = connexio;
     }
 
+    @Override
+    public boolean correcteFuncionament() {
+        return this.connexioElectrica;
+    }
+
     public String toString() {
         return "Nom=" + getNom() + ", Id=" + getId() +
                 ", estada mínima en temp ALTA: " + getEstadaMinima(Temp.ALTA) +

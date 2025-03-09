@@ -48,6 +48,11 @@ public class Bungalow extends Casa {
         this.aireFred=aireFred;
     }
 
+    @Override
+    public boolean correcteFuncionament() {
+        return this.aireFred;
+    }
+
     public String toString() {
         return "Nom=" + getNom() + ", Id=" + getId() +
                 ", estada mínima en temp ALTA: " + getEstadaMinima(Temp.ALTA) +

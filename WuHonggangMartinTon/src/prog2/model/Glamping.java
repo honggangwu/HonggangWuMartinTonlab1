@@ -29,6 +29,12 @@ public class Glamping extends Casa{
         this.casaMascotes=casaMascotes;
     }
 
+    @Override
+    public boolean correcteFuncionament() {
+        return this.casaMascotes;
+    }
+
+
     public String toString() {
         return "Nom=" + getNom() + ", Id=" + getId() +
                 ", estada mínima en temp ALTA: " + getEstadaMinima(Temp.ALTA) +

@@ -49,9 +49,7 @@ public abstract class Allotjament implements InAllotjament{
 
 
     @Override
-    public boolean correcteFuncionament() {
-        return false;
-    }
+    public abstract boolean correcteFuncionament();
 }
 
 

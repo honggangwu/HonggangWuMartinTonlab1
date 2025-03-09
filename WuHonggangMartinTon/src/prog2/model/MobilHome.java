@@ -17,6 +17,12 @@ public class MobilHome extends Casa{
         this.barbacoa=barbacoa;
     }
 
+    @Override
+    public boolean correcteFuncionament() {
+        return this.barbacoa;
+    }
+
+
     public String toString() {
         return "Nom=" + getNom() + ", Id=" + getId() +
                 ", estada mínima en temp ALTA: " + getEstadaMinima(Temp.ALTA) +
